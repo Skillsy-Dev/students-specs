@@ -12,6 +12,7 @@
 [9. Завершение тестирования](#title9)   
 [10. Список пользователей, прошедших тестирование](#title10)  
 [11. Просмотр результатов тестирования](#title11)   
+[11. B2C to B2C мэтчинг](#title12) 
 
 ### <a id="title1">1. Регистрация сервисного пользователя для получения результатов тестирования</a>
 **Метод:** `POST /api/auth/users`
@@ -107,7 +108,7 @@ headers: {
 **Ожидаемые параметры JSON:**
 ```json
 {
-    "external_user_id": "{external_user_id}",
+    "external_user_id": "{id}",
 }
 ```
 
@@ -195,7 +196,7 @@ headers: {
 ```json
 {
     "answer": "{answer choice number}",
-    "external_user_id": "{external_user_id}"
+    "external_user_id": "{id}"
 }
 ```
 
@@ -225,8 +226,8 @@ headers: {
 **Ожидаемые параметры JSON:**
 ```json
 {
-    "external_user_id": "{external_user_id}",
-    "link_id": "{link_id}"
+    "external_user_id": "{id}",
+    "link_id": "{id}"
 }
 ```
 
@@ -278,7 +279,7 @@ headers: {
 **Ожидаемые параметры JSON:**
 ```json
 {
-    "report_type": "{report_type}"
+    "report_type": "{type}"
 }
 ```
 
@@ -311,3 +312,45 @@ headers: {
 ```
 
 --- 
+
+## Мэтчинг
+
+### <a id="title12">12. B2C to B2C мэтчинг</a>
+**Метод:** `POST /api/match`
+
+**Ожидаемые параметры при запросе:**
+```
+headers: {
+    "Authorization": "Token ${token}"
+}
+```
+
+**Ожидаемые параметры JSON:**
+```json
+{
+    "match_type" : "{type}",
+    "user_to_find_match" : "{id}"
+    "users_to_be_matched" : [ "id1" ]
+
+}
+```
+
+**Пример ответа JSON (200 OK):**
+```json
+{
+    "match_type" : "FRIENDSHIP",
+    "user_id" : 45
+    "result" : [
+        {
+          "user_id" : 56,
+          "match" : true
+        },
+        {
+          "user_id" : 56,
+          "match" : false
+        },
+    ]
+}
+```
+
+---
