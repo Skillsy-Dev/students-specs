@@ -11,8 +11,9 @@
 [8. Список пользователей, прошедших тестирование](#title8)  
 [9. Просмотр результатов тестирования](#title9)  
 [10. Командный отчет](#title10)  
-[11. B2C to B2C мэтчинг](#title11)     
-[12. B2C to B2B мэтчинг](#title12)      
+[11. B2C to B2C мэтчинг (один к одному)](#title11)     
+[12. B2C to B2C мэтчинг (один ко многим)](#title12)   
+[13. B2C to B2B мэтчинг](#title13)      
 
 
 ### <a id="title1">1. Авторизация сервисного пользователя</a>
@@ -224,7 +225,7 @@ headers: {
 ---
 
 ### <a id="title9">9. Просмотр результатов тестирования</a>
-**Метод:** `GET /api/user/{user_id}/report`
+**Метод:** `POST /api/user/{user_id}/report`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -271,7 +272,7 @@ headers: {
 --- 
 
 ### <a id="title10">10. Командный отчет</a>
-**Метод:** `GET /api/team-report`
+**Метод:** `POST /api/team-report`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -319,8 +320,8 @@ headers: {
 
 ## B2C to B2C мэтчинг
 
-### <a id="title11">11. B2C to B2C мэтчинг</a>
-**Метод:** `POST /api/b2cmatch`
+### <a id="title11">11. B2C to B2C мэтчинг (один к одному)</a>
+**Метод:** `POST /api/match/b2c/one`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -334,8 +335,40 @@ headers: {
 {
     "match_type" : "{type}",
     "user_to_find_match" : "{id}"
-    "users_to_be_matched" : [ "id1" ]
+    "user_to_be_matched" : "{id}"
 
+}
+```
+
+**Пример ответа JSON (200 OK):**
+```json
+{
+    "match_type" : "FRIENDSHIP",
+    "user_id" : 45
+    "result" : {
+        "user_id" : 56,
+        "match" : true
+    }
+}
+```
+
+---
+
+### <a id="title12">12. B2C to B2C мэтчинг (один ко многим)</a>
+**Метод:** `POST /api/match/b2c/many`
+
+**Ожидаемые параметры при запросе:**
+```
+headers: {
+    "Authorization": "Token ${token}"
+}
+```
+
+**Ожидаемые параметры JSON:**
+```json
+{
+    "match_type" : "{type}",
+    "user_to_find_match" : "{id}"
 }
 ```
 
@@ -361,7 +394,7 @@ headers: {
 
 ## B2C to B2B мэтчинг
 
-### <a id="title12">12. B2C to B2B мэтчинг</a>
+### <a id="title13">13. B2C to B2B мэтчинг</a>
 **Метод:** `POST /api/b2bmatch`
 
 **Ожидаемые параметры при запросе:**
