@@ -206,20 +206,30 @@ headers: {
 }
 ```
 
+**Опциональные параметры при запросе:**
+```
+GET /api/users-list/?page={page_number}&limit={records_per_page}
+```
+
 **Пример ответа JSON (200 OK):**
 ```json
-[
-    {
-        "user_id": "74",
-        "age": 22,
-        "date_of_completion": "2024-08-23T10:12:09.883762Z"
-    },
-    {
-        "user_id": "75",
-        "age": 21,
-        "date_of_completion": "2024-08-13T08:59:14.816354Z"
-    },
-]
+{
+    "total_count": 14,
+    "next": "https://{skillsy_host}/api/users-list/?limit=2&page=2",
+    "previous": null,
+    "results": [
+       {
+           "user_id": "74",
+           "age": 22,
+           "date_of_completion": "2024-08-23T10:12:09.883762Z"
+       },
+       {
+           "user_id": "75",
+           "age": 21,
+           "date_of_completion": "2024-08-13T08:59:14.816354Z"
+       },
+    ]
+}
 ```
 
 ---
