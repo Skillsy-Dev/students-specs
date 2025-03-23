@@ -150,7 +150,7 @@ headers: {
 ---
 
 ### <a id="title6">6. Регистрация ответа на вопросы</a>
-**Метод:** `POST /api/questions/{user_id}/{question_id}/submit-answer`
+**Метод:** `POST /api/questions/{user_id}/{question_id}/answer`
 
 **Ожидаемые параметры JSON:**
 ```json
@@ -171,7 +171,7 @@ headers: {
 ---
 
 ### <a id="title7">7. Завершение тестирования</a>
-**Метод:** `POST /api/user/submit-test`
+**Метод:** `POST /api/user/test`
 
 **Ожидаемые параметры при запросе:**
 ```
