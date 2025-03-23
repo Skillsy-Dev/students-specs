@@ -53,7 +53,7 @@ headers: {
 ---
 
 ### <a id="title3">3. Регистрация пользователя для прохождения тестирования</a>
-**Метод:** `POST /api/user/create`
+**Метод:** `POST /api/user`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -197,7 +197,7 @@ headers: {
 ---
 
 ### <a id="title8">8. Список пользователей, прошедших тестирование</a>
-**Метод:** `GET /api/users-list`
+**Метод:** `GET /api/users`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -208,14 +208,14 @@ headers: {
 
 **Опциональные параметры при запросе:**
 ```
-GET /api/users-list/?page={page_number}&limit={records_per_page}
+GET /api/users/?page={page_number}&limit={records_per_page}
 ```
 
 **Пример ответа JSON (200 OK):**
 ```json
 {
     "total_count": 14,
-    "next": "https://{skillsy_host}/api/users-list/?limit=2&page=2",
+    "next": "https://{skillsy_host}/api/users/?limit=2&page=2",
     "previous": null,
     "results": [
        {
@@ -405,7 +405,7 @@ headers: {
 ## B2C to B2B мэтчинг
 
 ### <a id="title13">13. B2C to B2B мэтчинг</a>
-**Метод:** `POST /api/b2bmatch`
+**Метод:** `POST /api/match/b2b`
 
 **Ожидаемые параметры при запросе:**
 ```
