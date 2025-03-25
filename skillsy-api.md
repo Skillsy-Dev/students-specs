@@ -22,7 +22,7 @@
 ```json
 {
     "client_id" : "{id}",
-    "webhook" : "{url}"
+    "webhook_url" : "{url}"
     "secret_key" : "{key}"
 }
 ```
