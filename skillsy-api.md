@@ -31,7 +31,7 @@
 ```json
 {
     "auth_token": "{token}",
-    "url": "{url}"
+    "url": "{skillsy_url}"
 }
 ```
 
