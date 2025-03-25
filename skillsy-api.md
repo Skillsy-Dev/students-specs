@@ -418,6 +418,7 @@ headers: {
 {
     "service_type" : "TRAINING",
     "user_id" : 45
+    "match_id": 34,
     "result" : [
         {
           "service_id" : 56,
