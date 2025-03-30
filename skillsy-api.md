@@ -383,7 +383,7 @@ headers: {
 ## B2C to B2B мэтчинг
 
 ### <a id="title11">11. Добавить сервисы</a>
-**Метод:** `POST /api/match/services`
+**Метод:** `POST /api/match/b2b/services`
 
 **Ожидаемые параметры при запросе:**
 ```
@@ -442,11 +442,11 @@ headers: {
     "result" : [
         {
           "service_id" : 56,
-          "match_ratio" : true
+          "match_index" : true
         },
         {
           "service_id" : 56,
-          "match_ratio" : false
+          "match_index" : false
         },
     ]
 }
