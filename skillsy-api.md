@@ -508,7 +508,7 @@ headers: {
 ```json
 {
     "service_type" : "{type}",
-    "user_id : "{id}"
+    "user_id" : "{id}"
     "prompt": "{user prompt}"
 }
 ```
