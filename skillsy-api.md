@@ -14,7 +14,7 @@
 [11. B2C to B2B мэтчинг (Добавить сервисы)](#title11)  
 [12. B2C to B2B мэтчинг (один к одному)](#title12)    
 [13. B2C to B2B мэтчинг (один ко многим)](#title13)      
-
+[13. Запрос к ИИ](#title14)      
 
 ### <a id="title1">1. Регистрация сервисного пользователя</a>
 **Метод:** `POST /api/client`
@@ -489,6 +489,36 @@ headers: {
           "match_index" : false
         },
     ]
+}
+```
+
+---
+
+### <a id="title14">14. Запрос к ИИ</a>
+**Метод:** `GET /api/user/{user_id}`
+
+**Ожидаемые параметры при запросе:**
+```
+headers: {
+    "Authorization": "Bearer ${token}"
+}
+```
+
+**Ожидаемые параметры JSON:**
+```json
+{
+    "service_type" : "{type}",
+    "user_id : "{id}"
+    "prompt": "{user prompt}"
+}
+```
+
+**Пример ответа JSON (200 OK):**
+```json
+{
+    "service_type" : "CAREER",
+    "user_id" : 45,
+    "response" : "Это ответ от ИИ"
 }
 ```
 
