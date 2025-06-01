@@ -11,8 +11,9 @@
 [8. Командный отчет](#title8)  
 [9. B2C to B2C мэтчинг (один к одному)](#title9)     
 [10. B2C to B2C мэтчинг (один ко многим)](#title10)   
-[11. B2C to B2B мэтчинг (Добавить сервисы)](#title11)   
-[12. B2C to B2B мэтчинг (один ко многим)](#title12)      
+[11. B2C to B2B мэтчинг (Добавить сервисы)](#title11)  
+[12. B2C to B2B мэтчинг (один к одному)](#title12)    
+[13. B2C to B2B мэтчинг (один ко многим)](#title13)      
 
 
 ### <a id="title1">1. Регистрация сервисного пользователя</a>
@@ -43,7 +44,7 @@
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -63,7 +64,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -92,7 +93,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -187,7 +188,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -215,7 +216,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -239,11 +240,13 @@ headers: {
        "type" : "WORK_RELATED",
        "description" : "Профессиональная сфера",
        "params" : [{
+          "id": 1,
           "name": "Ключевые ценности",
           "description": "Ключевые ценности проявляются во всех сферах жизни человека и определяют его выбор и решения",
           "text": "\n<strong>Стремление к самореализации</strong>\nЭтот кандидат/сотрудник стремится к самореализации, изучает себя и свою индивидуальность и ищет пути для оптимального воплощения своих сильных качеств.\n"
           },
           {
+          "id": 2,
           "name": "Командная роль",
           "description": "Лидер, эксперт или уверенный командный игрок? Командная роль вашего кандидата/сотрудника может отличаться от формальной роли, но важно понимать, к какой реализации в команде он стремится на самом деле",
           "text": "\n<strong>Лидер - Партнер</strong>\nВ команде этот кандидат/сотрудник стремится к лидерской позиции через синергию, коммуникацию и эффективное взаимодействие.\n"
@@ -263,7 +266,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -286,11 +289,13 @@ headers: {
        "type" : "TEAM_BASIC",
        "description" : "Общая оценка команды",
        "params" : [{
+          "id": 1,
           "name": "Ценностный профиль команды",
           "description": "Ценностный профиль команды",
           "text": "Описание ценностного профиля команды"
           },
           {
+          "id": 2,
           "name": "Командное взаимодействие",
           "description": "Командное взаимодействие",
           "text": "Описание командного взаимодействия"
@@ -312,7 +317,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -347,7 +352,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -388,7 +393,7 @@ headers: {
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
@@ -415,13 +420,48 @@ headers: {
 
 ---
 
-### <a id="title12">12. B2C to B2B мэтчинг (один ко многим)</a>
+### <a id="title12">12. B2C to B2B мэтчинг (один к одному)</a>
+**Метод:** `POST /api/match/b2b/one`
+
+**Ожидаемые параметры при запросе:**
+```
+headers: {
+    "Authorization": "Bearer ${token}"
+}
+```
+
+**Ожидаемые параметры JSON:**
+```json
+{
+    "service_type" : "{type}",
+    "user_to_find_match" : "{id}",
+    "service_to_be_matched" : "{id}"
+}
+```
+
+**Пример ответа JSON (200 OK):**
+```json
+{
+    "match_id": "{id}"
+    "match_type" : "POSITION",
+    "user_id" : 45
+    "result" : {
+        "service_id" : 56,
+        "match_index" : 78
+    }
+}
+```
+
+---
+
+
+### <a id="title13">13. B2C to B2B мэтчинг (один ко многим)</a>
 **Метод:** `POST /api/match/b2b/many`
 
 **Ожидаемые параметры при запросе:**
 ```
 headers: {
-    "Authorization": "Token ${token}"
+    "Authorization": "Bearer ${token}"
 }
 ```
 
